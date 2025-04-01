@@ -1,0 +1,45 @@
+@startuml
+
+interface Habitos {
+    + ejercicio()
+    + alimentacion()
+    + bebida()
+}
+
+abstract class Persona {
+    - edad: int
+    - peso: float
+    - nombre: String
+    + Persona(edad: int, peso: float, nombre: String)
+    + despertarse()
+    - dormirse()
+    + getEdad(): int
+    + getPeso(): float
+    + getNombre(): String
+    + toString(): String
+}
+
+class PersonaSaludable {
+    - resistencia: int
+    + PersonaSaludable(edad: int, peso: float, nombre: String)
+    + madrugar(hora: LocalDateTime): boolean
+    + ejercicio()
+    + alimentacion()
+    + bebida()
+}
+
+class PersonaNoSaludable {
+    - colesterol: int
+    + PersonaNoSaludable(edad: int, peso: float, nombre: String)
+    + LlegarTarde(hora: LocalDateTime)
+    + ejercicio()
+    + alimentacion()
+    + bebida()
+    + toString(): String
+}
+
+Habitos <|.. Persona
+Persona <|-- PersonaSaludable
+Persona <|-- PersonaNoSaludable
+
+@enduml
